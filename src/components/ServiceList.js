@@ -25,16 +25,12 @@ function ServiceList({ services }) {
     const [operation, setOperation] = useState("");
     const handleOperationChange = (event) =>  setOperation(event.target.value);
 
-    let renderedServices;
-    if (operation !== "") {
-        const regexPattern = new RegExp(operation, 'i');
+    const regexPattern = new RegExp(operation, 'i');
 
-        renderedServices = services
+    const renderedServices = services
         .filter((service) => regexPattern.test(service.operation_name))
         .map((service, index)=> <ServiceShow service = { service } key = { index } />);
-    } else{
-        renderedServices = services.map((service) => <ServiceShow service = {service} key= {service.id} />)
-    }
+
 
     return (
         <>
