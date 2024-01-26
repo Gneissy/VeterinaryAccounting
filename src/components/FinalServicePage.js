@@ -78,8 +78,8 @@ function FinalServicePage() {
                 <TotalPrice>
                     Toplam: { totalPrice }
                 </TotalPrice>
-                <ButtonContainer disabled = {true} >
-                    <PrintButton disabled = {true} >
+                <ButtonContainer>
+                    <PrintButton>
                         Yazdır
                     </PrintButton>
                 </ButtonContainer>
