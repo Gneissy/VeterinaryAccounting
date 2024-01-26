@@ -37,6 +37,7 @@ const StyledTrashIcon = styled(TrashIcon)`
     position: absolute;
     bottom: 12px;
     right: 12px;
+    user-select: none;
 
     &:hover{
         fill: red;
