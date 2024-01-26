@@ -44,8 +44,10 @@ const StyledCatIcon = styled(CatIcon)`
     transition: fill .1s linear;
     user-select: none;
 
-    &:hover{
-        fill: #8AA391;
+    @media (hover:hover) and (pointer: fine){
+        &:hover{
+            fill: #8AA391;
+        }
     }
 `;
 const StyledDogIcon = styled(DogIcon)`
@@ -56,8 +58,10 @@ const StyledDogIcon = styled(DogIcon)`
     transition: fill .1s linear;
     user-select: none;
 
-    &:hover{
-        fill: #8AA391;
+    @media (hover:hover) and (pointer: fine){
+        &:hover{
+            fill: #8AA391;
+        }
     }
 `;
 const InfoContainer = styled.div`
