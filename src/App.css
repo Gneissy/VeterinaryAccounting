@@ -1,38 +1,171 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  *,
+  *::after,
+  *::before{
+    box-sizing: border-box;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  p, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
   }
-  to {
-    transform: rotate(360deg);
+  
+  html, body{
+    margin:0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+    width: 100svw;
+  
+    overflow-x: clip; 
   }
-}
+  html{
+    height: 100%;
+  }
+  body{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--backgroundcolor__body); */
+    color: var(--fontcolor__black);
+  }
+  #root{
+    display: flex;
+    flex-direction: column;
+    flex: 1; /*! Risky */
+  }
+
+ 
+  
+  /* Used across the whole app */ 
+  .link{
+    color: inherit;
+    text-decoration: none;
+  }
+  .flex-centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .transparent{
+    background-color: transparent !important;
+  }
+  .zero-opacity{
+    opacity: 0 !important;
+  }
+  
+  
+  /* @@@@@@@@@@ Scrollbar Related @@@@@@@@@@ */
+  ::-webkit-scrollbar {
+    width: .5rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: .5rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color__primary);
+    border: .1rem transparent solid;
+    border-radius: 100svw;
+    transition: all 1s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color__warning);
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  /* In case it's not supported (like maybe in Firefox) */
+  @supports (scrollbar-color: var(--color__primary) transparent){
+    * {
+      scrollbar-color: var(--color__primary) transparent;
+    }
+  }
+  
+  /* For Selective inputs including "Select" element */
+  select {
+    background-color: var(--backgroundcolor__body);
+    box-shadow: inset 0 0 0 1px var(--fontcolor__grey);
+    color: var(--fontcolor__white);
+    padding: 1rem;
+    padding-right: 1.25rem;
+    width: 100%;
+    border: 0px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 1px var(--fontcolor__grey);
+    border-radius: 4px;
+    transition: .2s ease;
+    cursor: pointer;
+    font-size: var(--fontsize__body);
+  
+    &::placeholder{
+      opacity: 1;
+      color: var(--fontcolor__grey);
+    }
+  }
+  
+  
+  
+  /* Autofill related */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid var(--color__success);
+    -webkit-text-fill-color: var(--fontcolor__white);
+    -webkit-box-shadow: 0 0 0px 1000px var(--backgroundcolor__body) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  
+  input[type=number] {
+      -moz-appearance:textfield; /* Firefox */
+  }
+  
+  
+  
+  /* CUSTOM VARIABLES */
+  :root{
+    /* Background Colors */
+    /* Maybe 000000 for body */
+    --backgroundcolor__body: #121212; /* alternative: 161616 */
+    --backgroundcolor__primary: #181818; /* alternative: 1b1e25*/
+    --backgroundcolor__black: #000000;
+  
+    /* Main Color Palette */
+    --color__primary: #fe6501;
+    /* --color__secondary: #C3438C; */
+    --color__secondary: #00C9B1  ;
+    --color__success: #a6ee73;
+    --color__warning: #FFCD72;
+    --color__danger: #ee6e6f;
+    --color__primary__faded: rgb(254, 101, 1, .25);
+  
+    /* Font Colors */
+    --fontcolor__black: #161616;
+    --fontcolor__white: #f9f9f9; /* alternative: fafafa */
+    --fontcolor__grey: #727272;
+  
+    /* Font Sizes */ 
+    --fontsize__title: 32px;
+    --fontsize__subtitle: 24px;
+    --fontsize__body: 18px;
+    --fontsize__small: 14px;
+    --fontsize__xsmall: 10px;
+    --fontsize__xxsmall: 8px;
+  
+    
+    /* Font Weigths */
+    --fontweight__title: 900;
+    --fontweight__body: 400;
+    --fontweight__body-bold: 700;
+    --fontweight__small: 400;
+  }

@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ServicePage from "../src/components/ServicePage";
+import FinalServicePage from "./components/FinalServicePage";
+import styled from "styled-components";
+
+const TempWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    min-height: 100svh;
+
+    @media (max-width: 768px){
+        grid-template-columns: 1fr;
+    }
+`; 
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <TempWrapper>
+            <ServicePage />
+            <FinalServicePage />
+        </TempWrapper>
+    );
 }
 
 export default App;
